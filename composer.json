@@ -1,0 +1,19 @@
+{
+    "name": "amarok-studios/db-helix",
+    "description": "Easily interact with your database using this library.",
+    "type": "library",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Timothy Bomer",
+            "email": "tbomer@amarokstudios.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "DBHelix\\": "src/",
+            "TESTS\\": "TESTS/"
+        }
+    }
+}
