@@ -72,6 +72,15 @@
 					}
 				}
 			}
+			return false;
+		}
+
+		public function getConfig(): Config {
+			return $this->Config;
+		}
+
+		public function getLogger(): Logger {
+			return $this->Logger;
 		}
 
 		public function query($SQL, $Params = []) {
@@ -150,12 +159,12 @@
 				$this->handleError($E);
 			}
 		}
-		public function batchUpdate($Table, $DataArray, $WhereColumn) {
+		public function batchUpdate($Table, $DataArray, $WhereColumn): void {
 			$Columns = array_keys($DataArray[0]);
 			$Set = implode(', ', array_map(function ($Column) use ($WhereColumn) {
 				if ($Column !== $WhereColumn) {
 					return "{$Column} = :{$Column}";
-				}
+				} return null;
 			}, $Columns));
 			$Set = implode(', ', array_filter(explode(', ', $Set))); // Filter out null values
 			$SQL = "UPDATE {$Table} SET {$Set} WHERE {$WhereColumn} = :{$WhereColumn}";
