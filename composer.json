@@ -14,8 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "DBHelix\\": "src/",
-            "TESTS\\": "TESTS/"
+            "DBHelix\\": "src/"
         }
     }
 }
